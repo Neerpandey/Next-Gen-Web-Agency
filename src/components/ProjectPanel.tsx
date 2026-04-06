@@ -5,42 +5,49 @@ import { ExternalLink } from 'lucide-react';
 const projects = [
   {
     title: "Grocery App",
+    description: "Modern e-commerce experience for daily essentials.",
     image: "/image_0.png",
     link: "https://v0-v0-grocery-app-development-silk.vercel.app/",
     color: "cyan"
   },
   {
     title: "Neer Alingx",
+    description: "Next-gen social platform for seamless connection.",
     image: "/image_1.png",
     link: "https://neer-alingx.vercel.app/",
     color: "magenta"
   },
   {
     title: "AI Studio",
+    description: "Intelligent creative suite for digital artists.",
     image: "/image_2.png",
     link: "https://neer-ai-studio.vercel.app/",
     color: "cyan"
   },
   {
     title: "Lumina Studio",
+    description: "High-performance visual production environment.",
     image: "/image_3.png",
     link: "https://lumina-studio-iota.vercel.app/",
     color: "magenta"
   },
   {
     title: "Lumina Pad",
+    description: "Sleek collaborative workspace for modern teams.",
     image: "/image_4.png",
     link: "https://lumina-pad.vercel.app/",
     color: "cyan"
   },
   {
     title: "Tournament App Animations",
+    description: "Dynamic motion design for competitive gaming.",
     image: "/image_5.png",
     link: "https://v0-tournament-app-animations.vercel.app/",
     color: "magenta"
   },
   {
     title: "AI Assistance",
+    description: "Personalized AI companion for daily productivity.",
     image: "/image_6.png",
     link: "https://neer-ai-assistance.vercel.app/",
     color: "cyan"
@@ -79,10 +86,14 @@ function ProjectCard({ project, index }: { project: typeof projects[0], index: n
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: 50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1, duration: 0.8 }}
+      initial={{ opacity: 0, scale: 0.9, y: 30 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ 
+        delay: index * 0.1, 
+        duration: 0.8,
+        ease: [0.21, 0.47, 0.32, 0.98]
+      }}
       style={{
         rotateX,
         rotateY,
@@ -100,16 +111,19 @@ function ProjectCard({ project, index }: { project: typeof projects[0], index: n
           <img 
             src={project.image} 
             alt={project.title}
-            className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
+            className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
         </div>
 
         <div className="relative z-10">
-          <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors duration-300">
+          <h3 className="text-xl font-bold text-white/80 group-hover:text-white transition-colors duration-300 mb-1">
             {project.title}
           </h3>
+          <p className="text-xs text-white/40 group-hover:text-white/80 transition-colors duration-300 mb-4 line-clamp-1">
+            {project.description}
+          </p>
           <motion.div 
             whileHover={{ x: 5 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-[10px] text-white font-bold uppercase tracking-widest group-hover:bg-cyan-500 group-hover:text-black transition-all duration-300"
