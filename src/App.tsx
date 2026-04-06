@@ -77,7 +77,7 @@ export default function App() {
                   animate={{ opacity: 1, x: 0 }}
                   className="flex items-center gap-2"
                 >
-                  <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center overflow-hidden">
+                  <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center overflow-hidden shadow-[0_0_15px_rgba(255,255,255,0.5)] border border-white/20">
                     <img src="/image_7.png" alt="NextGen Logo" className="w-full h-full object-cover" />
                   </div>
                   <span className="text-2xl font-bold font-display tracking-tighter">NextGen</span>
@@ -153,7 +153,7 @@ export default function App() {
               <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
                 <div className="md:col-span-2">
                     <div className="flex items-center gap-2 mb-8">
-                      <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center overflow-hidden">
+                      <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center overflow-hidden shadow-[0_0_15px_rgba(255,255,255,0.5)] border border-white/20">
                         <img src="/image_7.png" alt="NextGen Logo" className="w-full h-full object-cover" />
                       </div>
                       <span className="text-3xl font-bold font-display tracking-tighter">NextGen</span>

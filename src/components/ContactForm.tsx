@@ -34,7 +34,10 @@ export default function ContactForm() {
     setIsSubmitting(true);
     try {
       await push(ref(database, 'leads'), {
-        ...data,
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        message: data.details,
         timestamp: Date.now()
       });
       
@@ -125,14 +128,26 @@ export default function ContactForm() {
             <AnimatePresence>
               {isSuccess && (
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0 }}
-                  className="absolute inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center text-center p-8"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  className="absolute inset-0 bg-black/90 backdrop-blur-xl flex items-center justify-center text-center p-8 z-50"
                 >
-                  <div>
-                    <h3 className="text-3xl font-bold mb-4 font-display tracking-tight">Success!</h3>
-                    <p className="text-white/40">We've received your message and will get back to you shortly.</p>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-cyan-500/20 blur-2xl rounded-full animate-pulse" />
+                    <h3 className="text-4xl font-bold mb-4 font-display tracking-tight text-white relative">
+                      Request <span className="text-cyan-400">Sent!</span>
+                    </h3>
+                    <p className="text-white/60 text-lg relative">
+                      We've received your vision. <br />
+                      Expect a response within 24 hours.
+                    </p>
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      animate={{ width: "100%" }}
+                      className="h-1 bg-cyan-500 mt-6 mx-auto rounded-full"
+                      transition={{ duration: 5 }}
+                    />
                   </div>
                 </motion.div>
               )}
