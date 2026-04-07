@@ -13,15 +13,3 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const database = getDatabase(app);
-
-/**
- * DATABASE RULES (Apply in Firebase Console):
- * {
- *   "rules": {
- *     "leads": {
- *       ".read": false,
- *       ".write": true
- *     }
- *   }
- * }
- */
